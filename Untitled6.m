@@ -196,7 +196,7 @@ ylim([0 max(Y_noisy_mag)*1.1]);
 
 % 标注干扰频率
 hold on;
-%h = line([f_interfere f_interfere], [0 max(Y_noisy_mag)*1.1], 'Color', 'k', 'LineStyle', '--');
+h = line([f_interfere f_interfere], [0 max(Y_noisy_mag)*1.1], 'Color', 'k', 'LineStyle', '--');
 text(f_interfere+10, max(Y_noisy_mag)*0.9, ['干扰频率: ' num2str(f_interfere) ' Hz'], 'FontSize', 8);
 hold off;
 
@@ -264,8 +264,7 @@ fprintf('滤波前信噪比: %.2f dB\n', SNR_before);
 fprintf('IIR陷波滤波后信噪比: %.2f dB (改善 %.2f dB)\n', SNR_iir, SNR_iir-SNR_before);
 fprintf('FIR带阻滤波后信噪比: %.2f dB (改善 %.2f dB)\n', SNR_fir, SNR_fir-SNR_before);
 
-%% 6. 播放音频比较效果（可选）
-% 注释此部分如不想播放声音
+%% 6. 播放音频比较效果
 disp('播放原始语音...');
 sound(speech, fs);
 pause(duration + 1);
